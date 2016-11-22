@@ -1,10 +1,10 @@
 import React from 'react';
 import { render } from 'react-dom';
-import MessageContainer from './MessageContainer.js';
+import MessageContainerComp from './MessageContainer.js';
 
 class App extends React.Component {
   render () {
-    return <MessageContainer />
+    return <MessageContainerComp />
   }
 }
 

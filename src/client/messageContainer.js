@@ -1,8 +1,9 @@
 import React from 'react';
 import Size from './size.js';
+import { Message, MessageComp } from './message.js';
 
 // ===== Message Container Class =====
-class MessageContainer extends React.Component {
+class MessageContainerComp extends React.Component {
 
   constructor(props) {
     super(props);
@@ -18,11 +19,11 @@ class MessageContainer extends React.Component {
           width: this.state.size.getWidth(),
           height: this.state.size.getHeight()
         }}>
-        Yes
+        <MessageComp content="Hello world" />
       </div>
     );
   }
 
 }
 
-export default MessageContainer;
+export default MessageContainerComp;
