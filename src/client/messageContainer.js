@@ -1,6 +1,6 @@
 import React from 'react';
 import Size from './size.js';
-import { Message, MessageComp } from './message.js';
+import { MessageComp } from './message.js';
 
 // ===== Message Container Class =====
 class MessageContainerComp extends React.Component {

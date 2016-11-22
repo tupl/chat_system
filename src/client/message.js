@@ -1,34 +1,5 @@
 import React from 'react';
 
-/*
-  private:
-    - userid: who type this message
-    - id: incremental id
-    - text: the content of this message
-*/
-
-class Message {
-
-  constructor(userid, id, text) {
-    this.userid = userid;
-    this.id = id;
-    this.text = text;
-  }
-
-  getContent() {
-    return this.text;
-  }
-
-  getId() {
-    return this.getId;
-  }
-
-  getUserId() {
-    return this.userid;
-  }
-
-}
-
 class MessageComp extends React.Component {
 
   constructor(props) {
@@ -39,7 +10,7 @@ class MessageComp extends React.Component {
   render() {
     return (
       <div>
-        <h2> { this.props.content } </h2>
+        <span className="messageCls"> { this.props.content } </span>
       </div>
     );
   }
@@ -47,5 +18,5 @@ class MessageComp extends React.Component {
 }
 
 export {
-   Message, MessageComp
+   MessageComp
 }
