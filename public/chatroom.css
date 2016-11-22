@@ -2,7 +2,7 @@
 #MessageContainer {
   border-style: solid;
   border-width: medium;
-  padding: 25px 10px;
+  padding: 0px 10px;
 }
 
 .messageCls {
@@ -12,4 +12,10 @@
   border-radius: 5px;
 
   padding: 10px;
+
+  font-weight: normal;
+  font-size: 14px;
+  font-family: sans-serif;
+
+  display:table;
 }

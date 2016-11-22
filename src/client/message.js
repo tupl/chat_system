@@ -10,7 +10,7 @@ class MessageComp extends React.Component {
   render() {
     return (
       <div>
-        <span className="messageCls"> { this.props.content } </span>
+        <h3 className="messageCls"> { this.props.content } </h3>
       </div>
     );
   }
