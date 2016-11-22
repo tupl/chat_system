@@ -1,0 +1,26 @@
+{
+  "name": "chat_system",
+  "version": "0.0.1",
+  "description": "Chat System to support multiple chat rooms and scalable",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "chat",
+    "system",
+    "scalable",
+    "chat",
+    "room"
+  ],
+  "author": "Tu Le Phu Hoang (tuleph@gmail.com)",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^15.4.0",
+    "react-redux": "^4.4.6",
+    "redux": "^3.6.0"
+  },
+  "devDependencies": {
+    "redux-devtools": "^3.3.1"
+  }
+}
