@@ -3,13 +3,11 @@ import { render } from 'react-dom';
 
 class App extends React.Component {
   render () {
-    return <p> Hello React!</p>
+    return <p> Hello React!</p>;
   }
 }
 
 render(
   <App/>,
-  document.body
+  document.getElementById("chatroom")
 );
-
-// document.write('Hello');
