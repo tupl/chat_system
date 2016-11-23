@@ -1,16 +1,12 @@
 import React from 'react';
 import Size from './size.js';
 import { MessageComp } from './message.js';
-import { Message, MsgStoreSglton } from './messageStore.js';
-
-MsgStoreSglton.addMessage('hehe', 'Tu Le Dep trai');
-MsgStoreSglton.addMessage('hehe', 'Tu Le Dep trai');
-MsgStoreSglton.addMessage('hehe', 'Tu Le Dep trai');
+import { Message } from './messageStore.js';
 
 // ===== Message Container Class =====
 
 /*
-  This class will require props:
+  Props:
     messages (required)
     size (required)
 */
@@ -31,8 +27,8 @@ class MessageContainerComp extends React.Component {
     return (
       <div id="MessageContainer"
         style={{
-          width: this.props.size.width,
-          height: this.props.size.height
+          width: this.props.get('width'),
+          height: this.props.get('width')
         }}>
         { messageRender }
       </div>

@@ -6,24 +6,20 @@ MSG_SUBMIT = Submit a message from this user.
 
 
 // ====== Some actions for the messages ======
-export const MSG_POST = 'MSG_POST'
-export const MSG_SUBMIT = 'MSG_SUBMIT'
+const ACTION_MSG_SUBMIT = 'ACTION_MSG_SUBMIT'
 
 
 // ====== action creator ======
 
-// creator for MSG_POST
-export function create_MSG_POST(msg) {
+// creator for MST_SUBMIT
+function create_MSG_SUBMIT(msg) {
   return {
-    type: MSG_POST,
+    type: ACTION_MSG_SUBMIT,
     msg
   }
 }
 
-// creator for MST_SUBMIT
-export function create_MSG_SUBMIT(msg) {
-  return {
-    type: MSG_SUBMIT,
-    msg
-  }
+export {
+  create_MSG_SUBMIT,
+  ACTION_MSG_SUBMIT
 }
