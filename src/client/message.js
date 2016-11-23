@@ -1,21 +1,10 @@
-import React from 'react';
+import { Record, Map, List } from 'Immutable';
 
-class MessageComp extends React.Component {
-
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return (
-      <div>
-        <h3 className="messageCls"> { this.props.content } </h3>
-      </div>
-    );
-  }
+class Message extends Record({
+  id: -1,
+  content: ""
+}) {
 
 }
 
-export {
-   MessageComp
-}
+export default Message

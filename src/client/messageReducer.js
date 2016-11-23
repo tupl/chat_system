@@ -1,5 +1,7 @@
-import {  create_MSG_SUBMIT, ACTION_MSG_SUBMIT } from './actions.js';
 import Immutable from 'Immutable';
+
+import {  create_MSG_SUBMIT, ACTION_MSG_SUBMIT } from './actions.js';
+import Message from './message.js';
 
 let initialState = Immutable.Map({
   messages: Immutable.List.of(),
@@ -15,7 +17,7 @@ function addMessage(state, mess) {
 
   return state.update('messages',
     messages => messages.push(
-      Immutable.Map({
+      new Message({
           id: id,
           content: mess
       })
