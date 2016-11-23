@@ -15,7 +15,7 @@ const ACTION_MSG_SUBMIT = 'ACTION_MSG_SUBMIT'
 function create_MSG_SUBMIT(msg) {
   return {
     type: ACTION_MSG_SUBMIT,
-    msg
+    content: msg
   }
 }
 

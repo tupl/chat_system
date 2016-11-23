@@ -1,7 +1,6 @@
 import React from 'react';
 import Size from './size.js';
 import { MessageComp } from './message.js';
-import { Message } from './messageStore.js';
 
 // ===== Message Container Class =====
 
@@ -20,15 +19,15 @@ class MessageContainerComp extends React.Component {
   render() {
 
     var messageRender = this.props.messages.map(
-      (message) =>
-      <MessageComp key={message.id} content={message.content} />
+      message => <MessageComp key={message.get('id')}
+          content={message.get('content')} />
     );
 
     return (
       <div id="MessageContainer"
         style={{
-          width: this.props.get('width'),
-          height: this.props.get('width')
+          width: this.props.size.get('width'),
+          height: this.props.size.get('height')
         }}>
         { messageRender }
       </div>
