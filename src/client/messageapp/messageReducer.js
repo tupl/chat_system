@@ -1,10 +1,10 @@
 import { Map, List } from 'Immutable';
 
-import {  create_MSG_SUBMIT, ACTION_MSG_SUBMIT } from './actions.js';
+import {  create_MSG_SUBMIT, ACTION_MSG_SUBMIT } from './messageAction.js';
 import Message from './message.js';
 import { User } from './user.js';
-import { nextState } from '../util.js';
 import { combineReducers } from 'redux';
+import { users } from './userReducer.js';
 
 function addMessage(messages, mess) {
   var id = messages.count();
@@ -37,8 +37,9 @@ const messages = (state = List.of(), action) => {
 };
 
 const logicReducer = combineReducers({
+  users,
   messages,
-  size
+  size,
 })
 
 export default logicReducer

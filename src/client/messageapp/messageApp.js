@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import { MessageBoxComp } from './MessageBox.js';
 import MessageContainerComp from './MessageContainer.js';
 import { connect } from 'react-redux';
-import { create_MSG_SUBMIT } from './actions.js';
+import { create_MSG_SUBMIT } from './messageAction.js';
 
 const mapStateToProps = (state) => {
   return {

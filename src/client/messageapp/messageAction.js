@@ -6,7 +6,7 @@ MSG_SUBMIT = Submit a message from this user.
 
 
 // ====== Some actions for the messages ======
-const ACTION_MSG_SUBMIT = 'ACTION_MSG_SUBMIT'
+const ACTION_MSG_SUBMIT = 'ACTION_MSG_SUBMIT';
 
 
 // ====== action creator ======
