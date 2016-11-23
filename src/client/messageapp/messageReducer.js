@@ -2,6 +2,13 @@ import Immutable from 'Immutable';
 
 import {  create_MSG_SUBMIT, ACTION_MSG_SUBMIT } from './actions.js';
 import Message from './message.js';
+import { User, UserStore } from '../user/user.js';
+
+var st = new UserStore();
+
+var nextst = st.addUser("tuleph", "Tu Le Phu Hoang", "iconpath");
+
+console.log(nextst.getUser("tuleph"))
 
 let initialState = Immutable.Map({
   messages: Immutable.List.of(),

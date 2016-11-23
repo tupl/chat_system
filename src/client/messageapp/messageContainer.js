@@ -1,5 +1,4 @@
 import React from 'react';
-import Size from './size.js';
 import { MessageComp } from './messageComp.js';
 
 // ===== Message Container Class =====
