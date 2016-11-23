@@ -4,7 +4,6 @@ class MessageComp extends React.Component {
 
   constructor(props) {
     super(props);
-    var states = this.state = {};
   }
 
   render() {
