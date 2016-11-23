@@ -2,7 +2,7 @@ import { Map, List } from 'Immutable';
 
 import {  create_MSG_SUBMIT, ACTION_MSG_SUBMIT } from './actions.js';
 import Message from './message.js';
-import { User } from '../user/user.js';
+import { User } from './user.js';
 import { nextState } from '../util.js';
 import { combineReducers } from 'redux';
 
@@ -17,7 +17,7 @@ function addMessage(messages, mess) {
 }
 
 let defaultSize = Map({
-  width: 300, height: 500
+  width: 400, height: 500
 });
 
 const size = (state = defaultSize, action) => {
