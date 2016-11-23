@@ -35,7 +35,7 @@ class MessageBoxComp extends React.Component {
   render() {
 
     return (
-      <div>
+      <div id="MessageBox">
         <input
           type = "text"
           value = {this.state.inputText}
