@@ -1,34 +1,34 @@
-import Immutable from 'Immutable';
+import { Map, List } from 'Immutable';
 
 import {  create_MSG_SUBMIT, ACTION_MSG_SUBMIT } from './actions.js';
 import Message from './message.js';
-import { User, UserStore } from '../user/user.js';
+import { User } from '../user/user.js';
+import { nextState } from '../util.js';
 
-var st = new UserStore();
-
-var nextst = st.addUser("tuleph", "Tu Le Phu Hoang", "iconpath");
-
-console.log(nextst.getUser("tuleph"))
-
-let initialState = Immutable.Map({
-  messages: Immutable.List.of(),
-  size: Immutable.Map({
+let initialState = Map({
+  messages: List.of(),
+  size: Map({
     width: 400,
     height: 500
-  })
-})
+  }),
+  users: Map({})
+});
 
 function addMessage(state, mess) {
-  let messages = state.get('messages');
-  var id = messages.count();
 
-  return state.update('messages',
-    messages => messages.push(
-      new Message({
-          id: id,
-          content: mess
-      })
-    )
+  return nextState(
+    state,
+    'messages',
+    function( messages) {
+      var id = messages.count();
+
+      return messages.push(
+        new Message({
+            id: id,
+            content: mess
+        })
+      )
+    }
   )
 
 }

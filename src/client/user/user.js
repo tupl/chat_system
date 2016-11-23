@@ -6,6 +6,7 @@ import { Record, Map } from 'Immutable';
     name
     iconpath
 */
+
 class User extends Record({
   username: "",
   name: "",
@@ -13,30 +14,31 @@ class User extends Record({
 }) {
 }
 
-class UserStore extends Record({
-  users: Map({})
-}) {
+// class UserStore extends Record({
+//   users: Map({})
+// }) {
+//
+//   getUser(username) {
+//     return this.get('users').get(username);
+//   }
+//
+//   addUser(username, name, iconpath) {
+//     let newUser = new User({
+//       username: username,
+//       name: name,
+//       iconpath: iconpath
+//     })
+//
+//     let newUsersState = this.get('users').set(
+//       username, newUser
+//     )
+//
+//     return this.update('users', newUsersState);
+//   }
+// }
 
-  getUser(username) {
-    return this.get('users').get(username);
-  }
 
-  addUser(username, name, iconpath) {
-    let newUser = new User({
-      username: username,
-      name: name,
-      iconpath: iconpath
-    })
-
-    let newUsersState = this.get('users').set(
-      username, newUser
-    )
-
-    return this.set('users', newUsersState);
-  }
-}
 
 export {
-  User,
-  UserStore
+  User
 }
