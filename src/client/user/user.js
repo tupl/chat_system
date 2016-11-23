@@ -1,4 +1,5 @@
 import { Record, Map } from 'Immutable';
+import { nextState } from '../util.js';
 
 /*
   User: each user has a username
@@ -12,32 +13,8 @@ class User extends Record({
   name: "",
   iconpath: ""
 }) {
+
 }
-
-// class UserStore extends Record({
-//   users: Map({})
-// }) {
-//
-//   getUser(username) {
-//     return this.get('users').get(username);
-//   }
-//
-//   addUser(username, name, iconpath) {
-//     let newUser = new User({
-//       username: username,
-//       name: name,
-//       iconpath: iconpath
-//     })
-//
-//     let newUsersState = this.get('users').set(
-//       username, newUser
-//     )
-//
-//     return this.update('users', newUsersState);
-//   }
-// }
-
-
 
 export {
   User

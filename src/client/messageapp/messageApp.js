@@ -7,8 +7,8 @@ import { create_MSG_SUBMIT } from './actions.js';
 
 const mapStateToProps = (state) => {
   return {
-    messages: state.get('messages'),
-    size: state.get('size')
+    messages: state.messages,
+    size: state.size
   }
 }
 
