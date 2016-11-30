@@ -2,10 +2,8 @@
 
 + Client (React & Redux)
 
-  - MessageContainer [ x ]
-  - Message [ x ] (Each message in message container)
-  - MessageEnter [ x ] (Button to enter a message)
-  - MessageBox [ x ] (Where to enter the message)
+  - socket.io wrapper [ ]
+  - messageManager [ ]
 
 + Server - Frontier (NodeJs)
 

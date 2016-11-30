@@ -4,21 +4,21 @@
   "description": "Chat System to support multiple chat rooms and scalable",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/mocha --compilers js:babel-core/register --reporter spec src/client/**/test*.js"
   },
   "keywords": [
-    "chat",
-    "system",
+    "chat system",
     "scalable",
-    "chat",
-    "room"
+    "chat room"
   ],
   "author": "Tu Le Phu Hoang (tuleph@gmail.com)",
   "license": "ISC",
   "dependencies": {
     "babel": "^6.5.2",
+    "babel-cli": "^6.18.0",
     "babel-loader": "^6.2.8",
     "babel-preset-es2015": "^6.18.0",
+    "babel-preset-node6": "^11.0.0",
     "babel-preset-react": "^6.16.0",
     "fetch": "^1.1.0",
     "immutable": "^3.8.1",
@@ -33,6 +33,7 @@
     "babel-core": "^6.18.2",
     "babel-loader": "^6.2.8",
     "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
     "chai": "^3.5.0",
     "mocha": "^3.2.0",
     "mochai": "^0.2.5",
