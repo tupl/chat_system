@@ -28,5 +28,6 @@ const users = (state = defaultUser, action) => {
 };
 
 export {
+  addUser,
   users
 };
