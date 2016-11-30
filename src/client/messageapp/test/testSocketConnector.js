@@ -1,13 +1,13 @@
 import { expect } from 'chai';
-import { ChatConfig } from '../chatConnector.js';
+import { SocketConfig } from '../chatConnector.js';
 
 describe("testChatConnector module", function() {
 
-  describe("test ChatConfig class", function() {
+  describe("test SocketConfig class", function() {
 
     it("Test default initialization", function() {
 
-      let cf = new ChatConfig();
+      let cf = new SocketConfig();
 
       expect(cf.address)
         .to
@@ -23,7 +23,7 @@ describe("testChatConnector module", function() {
 
   describe("test initialize with value", function() {
 
-    let cf = new ChatConfig("123", 78);
+    let cf = new SocketConfig("123", 78);
 
     expect(cf.address)
       .to

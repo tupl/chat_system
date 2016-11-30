@@ -1,6 +1,6 @@
 import io from 'socket.io-client';
 
-class ChatConfig {
+class SocketConfig {
 
   constructor(address = "http://localhost", port = 80) {
     this.address = address;
@@ -14,7 +14,7 @@ class ChatConfig {
  * Usage:
  *
  */
-class ChatDriver {
+class SocketDriver {
 
   constructor() {
     this.config = null;
@@ -23,7 +23,7 @@ class ChatDriver {
   }
 
   _verifyConfig( cfg ) {
-    return cfg && (cfg instanceof ChatConfig);
+    return cfg && (cfg instanceof SocketConfig);
   }
 
   config(cfg) {
@@ -79,6 +79,6 @@ class ChatDriver {
 
 
 export {
-  ChatConfig,
-  ChatDriver
+  SocketConfig,
+  SocketDriver
 };
