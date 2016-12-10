@@ -10,8 +10,8 @@ class Conversation {
 
   constructor(chatid) {
     this.chatid = chatid;
-    this.messages = List.of([]);
-    this.backup = List.of([]);
+    this.messages = List.of([]); // this mesages are confimed with server
+    this.sending = List.of([]); // messages are currenly sent. Not confirm
     this.users = Map({});
     this.expectNextId = 0; // what is expected id of this messages
   }
@@ -24,12 +24,13 @@ class Conversation {
     return this.users.size;
   }
 
-  expectNextId( id ) {
-    this.expectNextId
+  // reset our expectNextId, by default it will 0
+  expectNextId( expectNextId ) {
+    this.expectNextId = expectNextId;
   }
 
   addBackMessage(message) {
-    if (message.id != this.expectNextId()) return false;
+    if (message.id != this.expectNextId) return false;
     this.messages = this.messages.push(message);
     return true;
   }

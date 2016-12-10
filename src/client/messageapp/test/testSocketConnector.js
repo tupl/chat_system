@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { SocketConfig } from '../chatConnector.js';
+import { SocketConfig } from '../socketConnector.js';
 
 describe("testChatConnector module", function() {
 
