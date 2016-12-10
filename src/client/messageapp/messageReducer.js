@@ -1,7 +1,7 @@
 import { Map, List } from 'Immutable';
 
 import {  create_MSG_SUBMIT, ACTION_MSG_SUBMIT } from './messageAction.js';
-import Message from './message.js';
+import { Message } from './message.js';
 import { User } from './user.js';
 import { combineReducers } from 'redux';
 import { users } from './userReducer.js';

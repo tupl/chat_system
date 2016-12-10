@@ -25,7 +25,7 @@ class Conversation {
   }
 
   // reset our expectNextId, by default it will 0
-  expectNextId( expectNextId ) {
+  setExpectNextId( expectNextId ) {
     this.expectNextId = expectNextId;
   }
 

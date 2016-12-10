@@ -16,9 +16,14 @@ class Message extends Record({
   serverid: -1, // Every message [chatid, serverid]
   id: -1, // This is the local id
   content: "",
-  status: 'Sending'
+  status: MESS_SENDING
 }) {
 
-}
+};
 
-export default Message
+export {
+  Message,
+  MESS_SENDING,
+  MESS_SENT,
+  MESS_RECEIVED
+};
