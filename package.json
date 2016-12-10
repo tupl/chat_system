@@ -4,7 +4,6 @@
   "description": "Chat System to support multiple chat rooms and scalable",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha --compilers js:babel-core/register --reporter spec src/client/**/test*.js"
   },
   "keywords": [
     "chat system",
@@ -37,6 +36,7 @@
     "babel-preset-react": "^6.16.0",
     "chai": "^3.5.0",
     "gulp": "^3.9.1",
+    "gulp-mocha": "^3.0.1",
     "mocha": "^3.2.0",
     "mochai": "^0.2.5",
     "redux-devtools": "^3.3.1",

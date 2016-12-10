@@ -1,8 +1,24 @@
 var gulp = require('gulp');
-var webpack = require("webpack");
 var path = require('path');
-var gutil = require("gulp-util");
+var gutil = require('gulp-util');
 
+// ===== ===== TEST ===== =====
+var mocha = require('gulp-mocha');
+var babel = require('babel-core/register');
+
+gulp.task('test', function() {
+
+  return gulp.src(['src/client/**/test*.js'])
+    .pipe(mocha({
+      compilers: [
+        'js:babel-core/register'
+      ]
+    }));
+
+});
+
+// ===== ===== BUILD MESSAGE APP ===== =====
+var webpack = require('webpack');
 var BUILD_DIR  = path.resolve(__dirname, 'public/');
 var APP_DIR = path.resolve(__dirname, 'src/client/messageapp');
 
@@ -33,7 +49,7 @@ gulp.task('message_app', function(callback) {
   console.log('Dest :' + BUILD_DIR + '/bundle.js');
 
   webpack(config, function(err, stats) {
-    if(err) throw new gutil.PluginError("webpack", err);
+    if(err) throw new gutil.PluginError('webpack', err);
     console.log('Finished building message_app');
     callback();
   });
