@@ -14,7 +14,8 @@ const MESS_RECEIVED = 2;
 class Message extends Record({
   chatid: -1,
   serverid: -1, // Every message [chatid, serverid]
-  id: -1, // This is the local id
+  id: -1, // This is the local id, only valid if it comes from this user
+  username: "",
   content: "",
   status: MESS_SENDING
 }) {

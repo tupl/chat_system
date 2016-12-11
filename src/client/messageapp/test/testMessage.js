@@ -19,12 +19,14 @@ describe("test Message module", function() {
       chatid: 5,
       serverid: 9,
       id: 7,
+      username: "tule",
       content: "this is test",
       status: MESS_RECEIVED
     });
     expect(obj.chatid).to.equal(5);
     expect(obj.serverid).to.equal(9);
     expect(obj.id).to.equal(7);
+    expect(obj.username).to.equal("tule");
     expect(obj.content).to.equal("this is test");
     expect(obj.status).to.equal(MESS_RECEIVED);
   });

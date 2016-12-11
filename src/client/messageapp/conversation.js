@@ -48,7 +48,7 @@ class Conversation {
   constructor(chatid) {
     this.chatid = chatid;
     this.messages = [] // this mesages are confimed with server
-    this.sending = new Set(); // messages are currenly sent. Not confirm
+    this.sending = []; // messages are currenly sent. Not confirm
     this.mainUser = null;
     this.users = [];
     this.expectNextId = -1; // what is expected id of this messages
@@ -90,9 +90,14 @@ class Conversation {
     return this;
   }
 
-  addBackMessage(message) {
-    if (message.id != this.expectNextId) return false;
-    this.messages = this.messages.push(message);
+  addReceivedMessage(message) {
+    if (message.get("chatid") != this.chatid) return false;
+    if (message.get("serverid") != this.expectNextId) return false;
+
+    // discard that messsage from sending
+    _discardSendingMessage(message.get("id"));
+
+    this.messages.push(message);
     return true;
   }
 
