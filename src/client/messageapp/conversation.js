@@ -51,7 +51,7 @@ class Conversation {
     this.sending = new Set(); // messages are currenly sent. Not confirm
     this.mainUser = null;
     this.users = [];
-    this.expectNextId = 0; // what is expected id of this messages
+    this.expectNextId = -1; // what is expected id of this messages
   }
 
   getChatId() {
@@ -74,7 +74,11 @@ class Conversation {
   // reset our expectNextId, by default it will 0
   setExpectNextId( expectNextId ) {
     this.expectNextId = expectNextId;
-    return this
+    return this;
+  }
+
+  getExpectNextId() {
+    return this.expectNextId;
   }
 
   getMainUser() {

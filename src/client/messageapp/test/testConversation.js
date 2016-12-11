@@ -43,6 +43,13 @@ describe("test Conversation module", function() {
 
   });
 
+  it("Verifying expectNextId", function() {
+    var con = new Conversation(4);
+    expect(con.getExpectNextId()).to.be.equal(-1);
+    expect(con.setExpectNextId(9)).to.be.equal(con);
+    expect(con.getExpectNextId()).to.be.equal(9);
+  });
+
   it("Verifying addUser", function() {
     var con = new Conversation(5);
     expect(con.getNumberUsers()).to.be.equal(0);
