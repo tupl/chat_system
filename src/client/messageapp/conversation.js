@@ -1,6 +1,7 @@
 import { Map, List } from 'Immutable';
 
 import { Message } from './message.js';
+import { isSameUser } from './user.js';
 
 /*
   getNumberReceivedMessages() --> int
@@ -92,8 +93,12 @@ class Conversation {
   }
 
   addUser(user) {
-    this.users = this.users.set(user.get('username'), user);
-    return this;
+    if (this.mainUser && isSameUser(user, this.mainUser)) return false;
+    for(const usr of this.users) {
+      if (isSameUser(usr, user)) return false;
+    }
+    this.users.push(user);
+    return true;
   }
 
 };
