@@ -90,6 +90,11 @@ class Conversation {
     return this;
   }
 
+  isFromMainUser(user) {
+    if (!this.mainUser) return false;
+    return isSameUser(user, this.mainUser);
+  }
+
   addReceivedMessage(message) {
     if (message.get("chatid") != this.chatid) return false;
     if (message.get("serverid") != this.expectNextId) return false;

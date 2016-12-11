@@ -34,13 +34,34 @@ var usr6 = new User({
 
 describe("test Conversation module", function() {
 
-  it("Verifying expectNextId", function() {
+  it("Verifying isFromMainUser", function() {
+    var con = new Conversation(0);
 
+    expect(con.getChatId()).to.equal(0);
+
+    expect(con.isFromMainUser(usr1)).to.be.false;
+
+    expect(con.setMainUser(usr1)).to.equal(con);
+    expect(con.getMainUser()).to.equal(usr1);
+
+    expect(con.isFromMainUser(usr1)).to.be.true;
+    expect(con.isFromMainUser(usr2)).to.be.true;
+    expect(con.isFromMainUser(usr4)).to.be.false;
+    expect(con.isFromMainUser(usr6)).to.be.false;
+    expect(con.isFromMainUser(usr3)).to.be.true;
+  });
+
+  it("Verifying addSendingMessage & discardSendingMessage", function() {
+
+
+
+  });
+
+  it("Verifying expectNextId", function() {
     var con = new Conversation(5);
     expect(con.getChatId()).to.equal(5);
     expect(con.setChatId(49)).to.equal(con);
     expect(con.getChatId()).to.equal(49);
-
   });
 
   it("Verifying expectNextId", function() {
@@ -87,7 +108,6 @@ describe("test Conversation module", function() {
     expect(con.setMainUser(usr1)).to.equal(con);
     expect(con.getMainUser()).to.equal(usr1);
     expect(con.getNumberUsers()).to.equal(1);
-
   });
 
 });
