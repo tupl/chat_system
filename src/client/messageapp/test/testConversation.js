@@ -2,7 +2,7 @@ import { expect } from 'chai';
 
 import  { Conversation } from '../conversation.js';
 import { User } from '../user.js';
-import { Message } from '../message.js';
+import { Message, MESS_SENDING } from '../message.js';
 
 var usr1 = new User({
   "username": "music",
@@ -49,6 +49,50 @@ describe("test Conversation module", function() {
     expect(con.isFromMainUser(usr4)).to.be.false;
     expect(con.isFromMainUser(usr6)).to.be.false;
     expect(con.isFromMainUser(usr3)).to.be.true;
+  });
+
+  it("Verifying adding", function() {
+    var con = new Conversation(0);
+
+    var mess = new Message({
+      chatid: -1,
+      serverid: -1, // Every message [chatid, serverid]
+      id: -1, // This is the local id, only valid if it comes from this user
+      username: "",
+      content: "",
+      status: MESS_SENDING
+    });
+
+    expect(con.setMainUser(usr1)).to.be.equal(con);
+    expect(con.getMainUser()).to.be.equal(usr1);
+
+    expect(con.getNumberSendingMessages()).to.be.equal(0);
+    expect(con.getSendingNextId()).to.be.equal(0);
+
+    // added bad message
+    expect(con.addSendingMessage({})).to.be.false;
+    expect(con.getSendingNextId()).to.be.equal(0);
+
+    expect(con.addSendingMessage(mess)).to.be.true;
+    expect(con.getSendingNextId()).to.be.equal(1);
+    expect(con.getNumberSendingMessages()).to.be.equal(1);
+
+    var tmess = con.sending[0];
+    expect(tmess.get("chatid")).to.be.equal(0);
+    expect(tmess.get("id")).to.be.equal(0);
+    expect(tmess.get("username")).to.be.equal("music");
+    expect(tmess.get("status")).to.be.equal(MESS_SENDING);
+
+    expect(con.addSendingMessage(mess)).to.be.true;
+    expect(con.getSendingNextId()).to.be.equal(2);
+    expect(con.getNumberSendingMessages()).to.be.equal(2);
+
+    tmess = con.sending[1];
+    expect(tmess.get("chatid")).to.be.equal(0);
+    expect(tmess.get("id")).to.be.equal(1);
+    expect(tmess.get("username")).to.be.equal("music");
+    expect(tmess.get("status")).to.be.equal(MESS_SENDING);
+
   });
 
   it("Verifying addSendingMessage & discardSendingMessage", function() {

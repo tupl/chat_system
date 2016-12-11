@@ -1,6 +1,6 @@
 import { Map, List } from 'Immutable';
 
-import { Message } from './message.js';
+import { Message, MESS_SENDING } from './message.js';
 import { isSameUser } from './user.js';
 
 /*
@@ -52,6 +52,7 @@ class Conversation {
     this.mainUser = null;
     this.users = [];
     this.expectNextId = -1; // what is expected id of this messages
+    this.sendingNextId = 0; // id for next sending
   }
 
   getChatId() {
@@ -64,15 +65,23 @@ class Conversation {
   }
 
   getNumberReceivedMessages() {
-    return this.messages.size;
+    return this.messages.length;
+  }
+
+  getNumberSendingMessages() {
+    return this.sending.length;
   }
 
   getNumberUsers() {
     return ((this.mainUser)? 1 : 0) + this.users.length;
   }
 
-  // reset our expectNextId, by default it will 0
-  setExpectNextId( expectNextId ) {
+  getSendingNextId() {
+    return this.sendingNextId;
+  }
+
+  // reset our expectNextId, by default it will -1
+  setExpectNextId(expectNextId) {
     this.expectNextId = expectNextId;
     return this;
   }
@@ -83,6 +92,20 @@ class Conversation {
 
   getMainUser() {
     return this.mainUser;
+  }
+
+  addSendingMessage(message) {
+    // assume we have this.chatid and this.mainUser
+    if (!(message instanceof Message)) return false;
+
+    var mess = message.set("id", this.sendingNextId)
+      .set("username", this.mainUser.get("username"))
+      .set("chatid", this.chatid)
+      .set("status", MESS_SENDING);
+
+    this.sending.push(mess);
+    ++ this.sendingNextId;
+    return true;
   }
 
   setMainUser(user) {
@@ -100,7 +123,7 @@ class Conversation {
     if (message.get("serverid") != this.expectNextId) return false;
 
     // discard that messsage from sending
-    _discardSendingMessage(message.get("id"));
+    discardSendingMessage(message.get("id"));
 
     this.messages.push(message);
     return true;
