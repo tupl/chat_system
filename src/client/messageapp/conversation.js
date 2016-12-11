@@ -46,11 +46,20 @@ class Conversation {
 
   constructor(chatid) {
     this.chatid = chatid;
-    this.messages = List.of([]); // this mesages are confimed with server
-    this.sending = List.of([]); // messages are currenly sent. Not confirm
+    this.messages = [] // this mesages are confimed with server
+    this.sending = new Set(); // messages are currenly sent. Not confirm
     this.mainUser = null;
-    this.users = Map({});
+    this.users = [];
     this.expectNextId = 0; // what is expected id of this messages
+  }
+
+  getChatId() {
+    return this.chatid;
+  }
+
+  setChatId(chatid) {
+    this.chatid = chatid;
+    return this;
   }
 
   getNumberReceivedMessages() {
@@ -58,13 +67,22 @@ class Conversation {
   }
 
   getNumberUsers() {
-    return this.users.size;
+    return ((this.mainUser)? 1 : 0) + this.users.length;
   }
 
   // reset our expectNextId, by default it will 0
   setExpectNextId( expectNextId ) {
     this.expectNextId = expectNextId;
     return this
+  }
+
+  getMainUser() {
+    return this.mainUser;
+  }
+
+  setMainUser(user) {
+    this.mainUser = user;
+    return this;
   }
 
   addBackMessage(message) {

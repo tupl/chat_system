@@ -1,5 +1,4 @@
 import { Record, Map } from 'Immutable';
-import { nextState } from '../util.js';
 
 /*
   User: each user has a username
@@ -14,8 +13,13 @@ class User extends Record({
   iconpath: ""
 }) {
 
+};
+
+function isSameUser(first, second) {
+  return first.get("username") == second.get("username");
 }
 
 export {
-  User
-}
+  User,
+  isSameUser
+};
