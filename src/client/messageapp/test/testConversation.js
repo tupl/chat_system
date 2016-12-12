@@ -51,7 +51,7 @@ describe("test Conversation module", function() {
     expect(con.isFromMainUser(usr3)).to.be.true;
   });
 
-  it("Verifying adding", function() {
+  it("Verifying adding sending messages", function() {
     var con = new Conversation(0);
 
     var mess = new Message({
@@ -92,6 +92,28 @@ describe("test Conversation module", function() {
     expect(tmess.get("id")).to.be.equal(1);
     expect(tmess.get("username")).to.be.equal("music");
     expect(tmess.get("status")).to.be.equal(MESS_SENDING);
+
+    var mess2 = new Message({
+      chatid: -1,
+      serverid: -1, // Every message [chatid, serverid]
+      id: -1, // This is the local id, only valid if it comes from this user
+      username: "",
+      content: "noway",
+      status: MESS_SENDING
+    });
+
+    expect(con.addSendingMessage(mess2)).to.be.true;
+
+    expect(con.discardSendingMessage(1)).to.be.equal(con);
+    expect(con.getNumberSendingMessages()).to.be.equal(2);
+
+    var testmess = con.sending[1];
+
+    expect(testmess.get("content")).to.be.equal("noway");
+    expect(testmess.get("id")).to.be.equal(2);
+
+    testmess = con.sending[0];
+    expect(testmess.get("id")).to.be.equal(0);
 
   });
 

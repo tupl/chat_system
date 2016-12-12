@@ -94,6 +94,17 @@ class Conversation {
     return this.mainUser;
   }
 
+  discardSendingMessage(id) {
+    for(var i = 0; i < this.sending.length; ++i) {
+      var mess = this.sending[i];
+      if (mess.get("id") == id) {
+        this.sending.splice(i, 1);
+        break;
+      }
+    }
+    return this;
+  }
+
   addSendingMessage(message) {
     // assume we have this.chatid and this.mainUser
     if (!(message instanceof Message)) return false;
